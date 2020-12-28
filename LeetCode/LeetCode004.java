@@ -47,7 +47,7 @@ public class LeetCode004 {
             int A_right = i == m ? Integer.MAX_VALUE : A[i];
             int B_left = j == 0 ? Integer.MIN_VALUE : B[j - 1];
             int B_right = j == n ? Integer.MAX_VALUE : B[j];
-
+            System.out.println("i: "+i + " j: "+j + " A_left: "+ A_left + " A_right: "+ A_right + " B_left: "+ B_left + " B_right: "+ B_right);
             if (A_left > B_right) {
                 imax = i - 1;
             } else if (B_left > A_right) {
@@ -65,6 +65,6 @@ public class LeetCode004 {
     }
     public static void main(String[] args) {
         // 0,1,2,3,4,5,6,7,8,9
-        System.out.println(findMedianSortedArrays(new int[]{1,3,5,7,9},new int[]{0,2,4,6,8,}));
+        System.out.println(findMedianSortedArrays(new int[]{1,3,5,7,9,11,13,15},new int[]{0,2,4,6,8,}));
     }
 }
