@@ -1,13 +1,3 @@
 .vscode/launch.json
-/out/production/everyday/LeetCode004.class
-/out/production/everyday/LeetCode005.class
-/out/production/everyday/LeetCode006.class
-/out/production/everyday/LeetCode007.class
-/out/production/everyday/LeetCode008.class
-/out/production/everyday/LeetCode009.class
-/out/production/everyday/LeetCode010.class
-/out/production/everyday/LeetCode011.class
-/out/production/everyday/LeetCode012.class
-/out/production/everyday/LeetCode013.class
-/out/production/everyday/LeetCode014.class
-/out/production/everyday/LeetCode015.class
+/out/**
+/out/

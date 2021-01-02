@@ -20,5 +20,16 @@ DP问题的过程中，一个是确定子问题，这个需要经验，或者推
 LeetCode0005：[5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 
 
+---
+如果可以的话，请把限制条件，尽可能的精确
 
+LeetCode0015：关于去重，优化的时候 ``` j > i 和 j>i+1 有可能就引发错误的case ```
 
+---
+分析问题，解决问题，最重要的是弄明白题目的意思，并且**身体力行** 的去计算，笔画，想，结果是
+如何计算出来的！   
+
+---
+如果可以的话，请把限制条件，尽可能的精确
+
+LeetCode0015：关于去重，优化的时候 ``` j > i 和 j>i+1 有可能就引发错误的case ```
