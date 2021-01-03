@@ -44,24 +44,24 @@ public class LeetCode019 {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         if(n <=0) return head;
         // end point
-        ListNode secondListNode = head;
+        ListNode s = head;
         //dele point pre node！
-        ListNode firstListNode = head;
+        ListNode f = head;
 
-        while(n>0 && secondListNode != null){
-            secondListNode = secondListNode.next;
+        while(n>0 && s != null){
+            s = s.next;
             n--;
         }
 
-        if(secondListNode == null && n == 0){
+        if(s == null && n == 0){
             return head.next;
         }
 
-        while (secondListNode.next != null) {
-            firstListNode = firstListNode.next;
-            secondListNode = secondListNode.next;
+        while (s.next != null) {
+            f = f.next;
+            s = s.next;
         }
-        firstListNode.next = firstListNode.next.next;
+        f.next = f.next.next;
         return head;
     }
 

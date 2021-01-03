@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class LeetCode020 {
 
 //Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
@@ -52,11 +54,42 @@ public class LeetCode020 {
 // s consists of parentheses only '()[]{}'.
 //
     public static boolean isValid(String s) {
-        return false;
+        if(s == null || s.length() <1 ) return true;
+        Stack<Character> stack = new Stack<>();
+        char[] schars = s.toCharArray();
+        for (int i = 0; i < schars.length; i++) {
+            char c = schars[i];
+            if(c == '(' || c == '[' || c == '{'){
+                stack.push(c);
+            }else if(c == ')'){
+                if(!stack.isEmpty() && stack.peek() == '('){
+                    stack.pop();
+                }else{
+                    return false;
+                }
+            }else if(c == ']'){
+                if(!stack.isEmpty() && stack.peek() == '['){
+                    stack.pop();
+                }else{
+                    return false;
+                }
+            }else if(c == '}'){
+                if(!stack.isEmpty() && stack.peek() == '{'){
+                    stack.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
         System.out.println("keep happy");
+        System.out.println(isValid("("));
+        System.out.println(isValid(")"));
+        System.out.println(isValid("()["));
+        System.out.println(isValid("()[{}]"));
     }
 
 }
