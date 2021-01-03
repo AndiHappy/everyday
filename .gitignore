@@ -1,3 +1,5 @@
 .vscode/launch.json
 /out/**
 /out/
+/.idea/**
+/.idea/
