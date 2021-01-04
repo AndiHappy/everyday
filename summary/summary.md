@@ -19,7 +19,6 @@ DP问题的过程中，一个是确定子问题，这个需要经验，或者推
 
 LeetCode0005：[5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 
-
 ---
 如果可以的话，请把限制条件，尽可能的精确
 
@@ -27,9 +26,54 @@ LeetCode0015：关于去重，优化的时候 ``` j > i 和 j>i+1 有可能就�
 
 ---
 分析问题，解决问题，最重要的是弄明白题目的意思，并且**身体力行** 的去计算，笔画，想，结果是
-如何计算出来的！   
+如何计算出来的！
 
 ---
 如果可以的话，请把限制条件，尽可能的精确
 
 LeetCode0015：关于去重，优化的时候 ``` j > i 和 j>i+1 有可能就引发错误的case ```
+
+---  
+
+递归和回溯
+是要联系，还是要有这个概念，迭代过程中的一个主要的概念，是循环，这个循环中需要确认三个量：
+1. 输入
+2. 输出
+3. 处理
+
+最重要的是确认输入和输出
+
+~~~ java
+static class Node{
+        public int val;
+        public Node next;
+
+        public Node(int i) {
+            this.val=i;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node h1 = new Node(0);
+        h1.next = new Node(1);
+        h1.next.next = new Node(3);
+
+        Node h2 = new Node(2);
+        h2.next = new Node(4);
+        h2.next.next = new Node(5);
+        Node re =  mergeTwoList(h1,h2);
+        System.out.println(re);
+    }
+    
+    public static Node mergeTwoList(Node l1,Node l2){
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+        if(l1.val < l2.val){
+            l1.next = mergeTwoList(l1.next,l2);
+            return l1;
+        }else{
+            l2.next = mergeTwoList(l1,l2.next);
+            return l2;
+        }
+    }
+~~~  
