@@ -43,7 +43,8 @@ LeetCode0015：关于去重，优化的时候 ``` j > i 和 j>i+1 有可能就�
 
 最重要的是确认输入和输出
 
-~~~ java
+~~~ 
+
 static class Node{
         public int val;
         public Node next;
@@ -64,7 +65,7 @@ static class Node{
         Node re =  mergeTwoList(h1,h2);
         System.out.println(re);
     }
-    
+
     public static Node mergeTwoList(Node l1,Node l2){
         if(l1 == null) return l2;
         if(l2 == null) return l1;
@@ -75,5 +76,6 @@ static class Node{
             l2.next = mergeTwoList(l1,l2.next);
             return l2;
         }
-    }
-~~~  
+    }  
+
+~~~
