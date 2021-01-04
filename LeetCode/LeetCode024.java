@@ -2,7 +2,7 @@ import util.ListNode;
 
 public class LeetCode024 {
 
-    public static  ListNode swapPairs(ListNode head) {
+    public static  ListNode swapPairs_2(ListNode head) {
         if(head == null || head.next == null) return head;
         ListNode tmp = new ListNode(0);
         tmp.next = head;
@@ -22,6 +22,22 @@ public class LeetCode024 {
         }
 
         return tmp.next;
+    }
+
+    public static ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null){
+            return head;
+        }
+        return swapPairs(head,head.next);
+    }
+
+    private static ListNode swapPairs(ListNode head, ListNode next) {
+        head.next = next.next;
+        next.next=head;
+        if(head.next != null && head.next.next != null){
+            head.next = swapPairs(head.next, head.next.next);
+        }
+        return next;
     }
 
     public static void main(String[] args) {
