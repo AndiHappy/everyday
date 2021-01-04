@@ -78,8 +78,6 @@
 
 public class LeetCode012 {
 
-    private static String[] M = new String[]{"","M","MM","MMM"};
-
     public static  String intToRoman(int num) {
 
         String M[] = { "", "M", "MM", "MMM" };

@@ -32,7 +32,8 @@ public class LeetCode022 {
     public static List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
         Set<String> judge = new HashSet<>();
-//        generateParenthesis(result,"",0,0,n);
+        // 第一种解法 
+        generateParenthesis(result,"",0,0,n);
 
         return generateParenthesis(1,result,judge,n);
     }
