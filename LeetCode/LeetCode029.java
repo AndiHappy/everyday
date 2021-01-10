@@ -68,15 +68,47 @@ public class LeetCode029 {
         int res = 0;
         int x = 0;
 
+        // if a > b >= 0, a=Integer.MIN_VALUE b = 1 a-b out of Integer ，is Positive，wonderful
         while (a - b >= 0) {
-
             for (x = 0; a - (b << x << 1) >= 0; x++);
-
             res += 1 << x;
             a -= b << x;
         }
+
         return (A > 0) == (B > 0) ? res : -res;
     }
+
+    public static int divide_3(int dividend, int divisor) {
+        if(dividend==Integer.MIN_VALUE && divisor==-1) return Integer.MAX_VALUE;
+        if(dividend > 0 && divisor > 0) return divideHelper(-dividend, -divisor);
+        else if(dividend > 0) return -divideHelper(-dividend,divisor);
+        else if(divisor > 0) return -divideHelper(dividend,-divisor);
+        else return divideHelper(dividend, divisor);
+    }
+
+    private static int divideHelper(int dividend, int divisor) {
+        int result = 0;
+        int currentDivisor = divisor;
+
+        while(true) {
+            if(dividend > divisor) {
+                break;
+            }
+
+            int temp = 1;
+            while(dividend <= currentDivisor << 1 && currentDivisor << 1 < 0) {
+                temp = temp << 1;
+                currentDivisor = currentDivisor << 1;
+            }
+
+            dividend -= currentDivisor;
+            result += temp;
+            currentDivisor = divisor;
+        }
+
+        return result;
+    }
+
 
 
     static final public int divide_error (int dividend, int divisor) {
@@ -103,8 +135,8 @@ public class LeetCode029 {
         System.out.println("keep Happy boy");
         System.out.println(Math.abs(Integer.MIN_VALUE));
         System.out.println(0-Integer.MIN_VALUE);
-        System.out.println(divide_2(Integer.MIN_VALUE,-1));
-        System.out.println(divide_2(Integer.MIN_VALUE,-2));
+        System.out.println(divide_3(Integer.MIN_VALUE,-2));
+        System.out.println(divide_3(Integer.MAX_VALUE,-2));
 
 //        System.out.println(divide(10,5));
 //        System.out.println(divide(10,10));
