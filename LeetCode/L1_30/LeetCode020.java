@@ -1,3 +1,5 @@
+package L1_30;
+
 import java.util.Stack;
 
 public class LeetCode020 {

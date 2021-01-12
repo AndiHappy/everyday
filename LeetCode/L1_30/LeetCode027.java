@@ -1,3 +1,5 @@
+package L1_30;
+
 import java.util.Arrays;
 
 public class LeetCode027 {

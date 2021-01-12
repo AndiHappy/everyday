@@ -1,3 +1,5 @@
+package L1_30;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +89,7 @@ public class LeetCode017 {
     }
 
     public static void main(String[] args) {
-        System.out.println("LeetCode017.main");
+        System.out.println("L1_30.LeetCode017.main");
         System.out.println( letterCombinations("23"));
     }
 }

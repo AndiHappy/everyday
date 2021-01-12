@@ -1,4 +1,4 @@
-//Implement atoi which converts a string to an integer. 
+package L1_30;//Implement atoi which converts a string to an integer.
 //
 // The function first discards as many whitespace characters as necessary until 
 //the first non-whitespace character is found. Then, starting from this character 

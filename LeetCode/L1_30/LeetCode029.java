@@ -1,3 +1,5 @@
+package L1_30;
+
 import java.awt.event.MouseAdapter;
 
 public class LeetCode029 {

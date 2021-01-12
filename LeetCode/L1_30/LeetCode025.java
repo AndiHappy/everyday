@@ -1,3 +1,5 @@
+package L1_30;
+
 import util.ListNode;
 
 public class LeetCode025 {

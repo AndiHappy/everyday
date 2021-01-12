@@ -1,3 +1,5 @@
+package L1_30;
+
 public class LeetCode028 {
 
     /**
