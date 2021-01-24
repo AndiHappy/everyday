@@ -89,7 +89,7 @@ public class LeetCode030 {
         List<Integer> result = new ArrayList<>();
         if(words == null || words.length == 0) return result;
 
-        // loop the words
+        // loop the words ①
         HashMap<String,Integer> wordsTimes = new HashMap<>();
         for (String word : words) {
             wordsTimes.put(word, wordsTimes.getOrDefault(word,0)+1);
@@ -104,6 +104,7 @@ public class LeetCode030 {
             HashMap<String,Integer> tmpJuge = new HashMap<>();
             while (itmp < i+ wordLen*wordsNum){
                 String tmp = s.substring(itmp,itmp+wordLen);
+                // ③
                 if(wordsTimes.containsKey(tmp)){
                     tmpJuge.put(tmp,tmpJuge.getOrDefault(tmp,0)+1);
                     int value = tmpJuge.getOrDefault(tmp,0);
@@ -115,6 +116,7 @@ public class LeetCode030 {
                 }
                 itmp = itmp+ wordLen;
             }
+            // ②
             if(itmp == i+ wordLen*wordsNum){
                 result.add(i);
             }
