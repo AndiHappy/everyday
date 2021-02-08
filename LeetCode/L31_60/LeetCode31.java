@@ -1,4 +1,6 @@
-public class LeetCode031 {
+package L31_60;
+
+public class LeetCode31 {
 
     /**
 
