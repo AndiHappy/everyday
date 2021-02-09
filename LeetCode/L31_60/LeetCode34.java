@@ -1,3 +1,5 @@
+package L31_60;
+
 import java.util.Arrays;
 
 public class LeetCode34 {
