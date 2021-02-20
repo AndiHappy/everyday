@@ -7,7 +7,8 @@ import java.util.List;
 public class LeetCode040 {
 
     /**
-     Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+     Given a collection of candidate numbers (candidates) and a target number (target),
+     find all unique combinations in candidates where the candidate numbers sum to target.
 
      Each number in candidates may only be used once in the combination.
 
@@ -67,7 +68,7 @@ public class LeetCode040 {
                 // how to judge element same  value and different index
                 if(j > i && candidates[j] == candidates[j-1]) continue;
 
-                // 这句的剪枝，错误在什么地方？？？？
+                // 这句的剪枝，错误在什么地方？？？？ 限制的条件，条件中的"唯一" 不一致
 //                if(j > 0 && candidates[j] == candidates[j-1]) continue;
 
                 integers.add(candidates[j]);
