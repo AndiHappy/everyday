@@ -74,21 +74,21 @@ public class LeetCode043 {
         return String.valueOf(result);
     }
 
-    private static String multiply(int n2i, char[] n1) {
-        StringBuilder tmpResult = new StringBuilder();
-        int carry=0;
-        for (int i = 0; i < n1.length; i++) {
-            int n1i = n1[n1.length-1-i]-'0';
-            int value = n2i*n1i+carry;
-            int v = value%10;
-            carry=value/10;
-            tmpResult.insert(0,v);
-        }
-        if(carry > 0){
-            tmpResult.insert(0,carry);
-        }
-       return tmpResult.toString();
-    }
+//    private static String multiply(int n2i, char[] n1) {
+//        StringBuilder tmpResult = new StringBuilder();
+//        int carry=0;
+//        for (int i = 0; i < n1.length; i++) {
+//            int n1i = n1[n1.length-1-i]-'0';
+//            int value = n2i*n1i+carry;
+//            int v = value%10;
+//            carry=value/10;
+//            tmpResult.insert(0,v);
+//        }
+//        if(carry > 0){
+//            tmpResult.insert(0,carry);
+//        }
+//       return tmpResult.toString();
+//    }
 
     public static String multiply(String num1, String num2) {
         int n1 = num1.length(), n2 = num2.length();
@@ -112,9 +112,64 @@ public class LeetCode043 {
         return sb.length() == 0 ? "0" : sb.toString();
     }
 
+
+
     public static void main(String[] args) {
         System.out.println("keep Happy boy");
-        System.out.println(multiply(9,new char[]{'4','5','6'}));
+        System.out.println(add("123213","544545"));
+        System.out.println(multiply(new char[]{'1','0','9'},new char[]{'4','5','9'}));
+    }
 
+    private static String multiply(char[] n2, char[] n1) {
+        String[] tmpAddString = new String[n2.length];
+        for (int i = n2.length-1; i >=0 ; i--) {
+            int n2value = n2[i]-'0';
+            StringBuilder value = multiply(n2value,n1);
+            int add = i;
+            while(add < n2.length-1){
+                value.append("0");
+                add++;
+            }
+            tmpAddString[n2.length-1-i] = value.toString();
+        }
+
+        String result = tmpAddString[0];
+        for (int i = 1; i < tmpAddString.length; i++) {
+            result= add(result,tmpAddString[i]);
+        }
+        return result;
+    }
+
+    public static String add(String n1,String n2){
+        if(n1.length() > n2.length())return add(n2,n1);
+        int i = 0,carry=0;
+        StringBuilder result = new StringBuilder();
+        while(i <= n1.length()-1 || i <= n2.length()-1){
+            int n1v = n1.length()-i > 0? n1.charAt(n1.length()-1-i)-'0':0;
+            int n2v = n2.length()-i > 0? n2.charAt(n2.length()-1-i)-'0':0;
+            int value = n1v+n2v+carry;
+            int v = value%10;
+            carry=value/10;
+            result.insert(0,v);
+            i++;
+        }
+        if(carry>0)result.insert(0,carry);
+        return  result.toString();
+    }
+
+    private static StringBuilder multiply(int n2i, char[] n1) {
+        StringBuilder tmpResult = new StringBuilder();
+        int carry=0;
+        for (int i = 0; i < n1.length; i++) {
+            int n1i = n1[n1.length-1-i]-'0';
+            int value = n2i*n1i+carry;
+            int v = value%10;
+            carry=value/10;
+            tmpResult.insert(0,v);
+        }
+        if(carry > 0){
+            tmpResult.insert(0,carry);
+        }
+        return tmpResult;
     }
 }
